@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PullListService} from "./pull-list.service";
 import {Pull} from "../model/pull";
 
@@ -9,11 +9,17 @@ import {Pull} from "../model/pull";
 })
 export class PullListComponent implements OnInit {
 
+  @Input() pulls: Pull[] = [];
+
+  //displayedColumns: string[] = ['Titre', 'Repository', 'UserStory', 'TestEnv', 'Actions'];
+  displayedColumns: string[] = ['Titre', 'Repository', 'UserStory', 'TestEnv'];
+
+
   constructor(
     private pullListService: PullListService
   ) { }
 
-  pulls: Pull[] = [];
+
 
   ngOnInit(): void {
     this.pullListService

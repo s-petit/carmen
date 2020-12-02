@@ -6,11 +6,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/pulls")
-class PullController {
+class PullController(private val pullRepository: PullRepository) {
     @GetMapping("/list")
-    fun list(): List<Pull> = listOf(
-            Pull("feature lol", "pocket"),
-            Pull("feature 2", "vulcain")
-    )
-
+    fun list(): List<Pull> = pullRepository.listPulls()
 }

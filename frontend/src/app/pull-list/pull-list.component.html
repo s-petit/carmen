@@ -1,3 +1,35 @@
-<p>pull-list works!</p>
+<div class="pull-requests">
+  <mat-table [dataSource]="pulls">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-<div *ngFor="let pull of pulls">{{pull.title}} - {{pull.repo}}</div>
+    <ng-container matColumnDef="Titre">
+      <mat-header-cell *matHeaderCellDef>Titre</mat-header-cell>
+      <mat-cell *matCellDef="let pull">
+        {{pull.title}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Repository">
+      <mat-header-cell *matHeaderCellDef>Repository</mat-header-cell>
+      <mat-cell *matCellDef="let pull">
+        {{pull.repo}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="UserStory">
+      <mat-header-cell *matHeaderCellDef>UserStory</mat-header-cell>
+      <mat-cell *matCellDef="let pull">
+        <a href="{{pull.jiraUrl}}">{{pull.ticket}}</a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TestEnv">
+      <mat-header-cell *matHeaderCellDef>TestEnv</mat-header-cell>
+      <mat-cell *matCellDef="let pull">
+        <a *ngIf="pull.prUrl" href="{{pull.prUrl}}">{{pull.repo}}</a>
+      </mat-cell>
+    </ng-container>
+
+  </mat-table>
+</div>

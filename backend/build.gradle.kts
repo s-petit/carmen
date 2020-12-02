@@ -31,6 +31,15 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.3")
     runtimeOnly("javax.servlet:javax.servlet-api:4.0.1")
     runtimeOnly("javax.xml.bind:jaxb-api:2.3.1")
+
+    // https://mvnrepository.com/artifact/org.kohsuke/github-api
+    implementation("org.kohsuke:github-api:1.117")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.5.0")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.3.31")
+    testImplementation("org.assertj:assertj-core:3.12.2")
+
+
 }
 
 java {

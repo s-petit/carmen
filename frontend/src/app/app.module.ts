@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PullListComponent } from './pull-list/pull-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CarmenMaterialModule} from "./shared/carmen-material.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CarmenMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
